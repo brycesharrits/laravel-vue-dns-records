@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Show DNS Records</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,10 +20,42 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="container">
-        @foreach ($records as $record)
-            <p>Record is: {{ $record }}
-        @endforeach
+        <div id="app" class="container">
+            <div class="card">
+                <p>@{{message}}</p>
+                <p v-if="testvar">aaaaaaa</p>
+                <p v-else>bbbbbbb</p>
+               
+                <h3 v-for="record in records">Record: @{{record}}</h3>
+            </div>
         </div>
     </body>
 </html>
+
+<script>
+
+var recs = {{ $records }};
+recs.forEach(rec => {
+    console.log("1 record");
+});
+console.log({!! $records !!});
+//   var jsonData = jsonData.{!! $records !!};
+//   console.log({!! $records !!});
+
+
+  const app = Vue.createApp({
+    data() {
+      return {
+        message: 'Hello, Vue 3!',
+        testvar: false,
+        // vuerecords: '{{ $records }}',
+        recordssss: '',
+      }
+    },
+    mounted() {
+        console.log({{ $records }});
+        console.log(jsonData.this.vuerecords);
+    }
+  });
+  app.mount('#app');
+</script>
