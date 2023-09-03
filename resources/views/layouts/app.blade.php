@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-        @vite(['resources/js/app.js']) <!--this is new-->
+        @vite(['resources/js/app.js']) <!--Required for vue to work... not exactly sure why-->
 
         <!-- Styles -->
         <style>
@@ -21,24 +21,8 @@
     <body>
         <div id="app">
             <p>body content prepend from app.blade.php</p>
-            <script src="{{ mix('js/app.js') }}"></script>
+            <!-- <script src="{{ mix('js/app.js') }}"></script> -->
             @yield('content')
         </div>
     </body>
 </html>
-<!-- 
-<script>
-  const { createApp } = Vue;
-
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    },
-    components: {
-        // HelloWorld,
-        TestComponent
-    }
-  }).mount('#app')
-</script> -->

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>{{ message }}</p>
     <input class="form-control" type="text" v-model="url" placeholder="Enter URL"/>
     <div class="btn btn-primary" @click="getDnsRecords">Get DNS Records</div>
     <div v-for="record in records">
@@ -13,7 +12,6 @@
 export default {
   data() {
     return {
-      message: 'Hello, Vue!',
       url: '',
       records: [],
     };

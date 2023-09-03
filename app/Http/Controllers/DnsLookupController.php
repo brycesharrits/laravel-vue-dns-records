@@ -28,14 +28,7 @@ class DnsLookupController extends Controller
                 $my_record->type = $record->type();
                 $my_records[] = $my_record;
 
-                Log::info("1");
                 Log::info($record->host());
-                Log::info($record->ttl());
-                foreach ($record as $r) {
-                    Log::info("2");
-                    Log::info($r);
-                    Log::info($r->host);
-                }
             }
             Log::info($records);
             return $my_records;

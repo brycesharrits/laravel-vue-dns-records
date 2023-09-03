@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dns', function () {
-//     return view('dns');
-// });
-// Route::post('/api/lookup', 'DnsLookupController@lookup');
 Route::post('/dns', [DnsLookupController::class, 'lookup']);
 
 
